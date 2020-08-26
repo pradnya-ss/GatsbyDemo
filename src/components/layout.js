@@ -3,7 +3,7 @@ import { StaticQuery, graphql } from "gatsby"
 import MainMenu from "./MainMenu";
 import Header from "./Header";
 import Footer from "./Footer";
-import Helmet from "react-helmet";
+// import Helmet from "react-helmet";
 
 
 const Layout = ({children}) =>(
