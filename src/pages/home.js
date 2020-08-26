@@ -16,7 +16,7 @@ import newwatchright from "../../static/news-watch-right-banner.jpg"
 // import { Link } from "gatsby"
 
 
-import Helmet from "react-helmet";
+// import Helmet from "react-helmet";
 
 import Search from "../components/SearchContainer";
 

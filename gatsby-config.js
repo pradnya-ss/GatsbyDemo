@@ -13,7 +13,7 @@ module.exports = {
       options:{
         typeName:'WPGraphql',
         fieldName:'wpgraphql',
-        url:'http://localhost/Allaboutvat/graphql',
+        url:'http://15.207.185.188/graphql',
       } 
     },
     `gatsby-plugin-styled-components`,
