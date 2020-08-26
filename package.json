@@ -42,9 +42,6 @@
   },
   "devDependencies": {
     "prettier": "^1.14.2"
-  },
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/jlengstorf/gatsby-with-apollo"
   }
+  
 }
