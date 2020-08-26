@@ -1,8 +1,8 @@
 {
-  "name": "gatsby-with-apollo",
+  "name": "demo",
   "description": "Gatsby with Apollo Boost",
   "version": "1.0.0",
-  "author": "Jason Lengstorf <jason@gatsbyjs.com>",
+  "author": "Shreyas <shreyas@emqube.com>",
   "dependencies": {
     "@apollo/client": "^3.0.2",
     "axios": "^0.19.2",
@@ -42,9 +42,5 @@
   },
   "devDependencies": {
     "prettier": "^1.14.2"
-  },
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/jlengstorf/gatsby-with-apollo"
   }
 }
