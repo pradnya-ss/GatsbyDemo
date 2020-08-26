@@ -1,0 +1,10 @@
+// import 'bootstrap/dist/css/bootstrap.css';
+import './src/styles/global.css';
+import 'react-accessible-accordion/dist/fancy-example.css';
+import 'react-accessible-accordion/dist/fancy-example.css';
+import './src/styles/main.css';
+import './src/styles/font-awesome.min.css';
+// import './src/assets/js/jquery-1.11.2.min.js';
+// import './src/assets/js/jquery-ui.min.js';
+// import './src/assets/js/main.js';
+export { wrapRootElement } from './src/apollo/wrap-root-element';

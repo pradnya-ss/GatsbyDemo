@@ -6,5 +6,17 @@
 
 module.exports = {
   /* Your site config here */
-  plugins: [],
+  plugins: [
+
+    {
+      resolve:'gatsby-source-graphql',
+      options:{
+        typeName:'WPGraphql',
+        fieldName:'wpgraphql',
+        url:'http://localhost/Allaboutvat/graphql',
+      } 
+    },
+    `gatsby-plugin-styled-components`,
+    // `gatsby-env-variables`
+  ],
 }
