@@ -22,7 +22,6 @@
     "react-custom-share": "^0.4.8",
     "react-dom": "^16.6.0",
     "react-icons": "^3.11.0",
-    "react-router-dom": "^5.2.0",
     "styled-components": "^5.1.1"
   },
   "keywords": [
