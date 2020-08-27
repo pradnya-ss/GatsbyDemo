@@ -3,6 +3,9 @@ import logo from "../../static/dubai-bizbuzz-logo.png"
 import { Link,navigate} from 'gatsby';
 import { useQuery } from '@apollo/client';
 import gql from 'graphql-tag';
+import {FacebookShareButton, FacebookIcon} from "react-share";
+import HelmetMetaData from "../components/HelmetMetaData";
+
 const APOLLO_QUERY = gql`
 {
     posts(where: {onlySticky: true, orderby: {field: MODIFIED, order: DESC},status: PUBLISH}, last: 1) {
@@ -32,7 +35,7 @@ const Toppost = () => {
 
   const { loading, error, data } = useQuery(APOLLO_QUERY);
   //const posts = data && data.posts && data.posts.edges;
-  const wpurl = `http://localhost:8000/`;
+  const wpurl = `https://master.dt90fhdc2pb5d.amplifyapp.com/blog/`;
 
  // if (postvalue!=''){
     
@@ -46,15 +49,23 @@ const Toppost = () => {
    //return (<h1>Shreyas</h1>);
    return ( 
     <section className="home-top-news-wrapper">
+       
     <div className="container">
       <div className="news-txt">
+      {data && data.posts && data.posts.edges.map(({ node }) => 
+         <div>
         <div className="social-share">  
           <p>Share</p>
           <ul>
             <li className="fb-share">
-              <a href="javascript:void(0);">
+            <FacebookShareButton 
+                url={`${wpurl}?post=${node.slug}`}
+                >
+                 <FacebookIcon size={36} />
+              </FacebookShareButton>
+              {/* <a href="javascript:void(0);">
                 <i className="fa fa-facebook" aria-hidden="true" />
-              </a>
+              </a> */}
             </li>
             <li className="twitter-share">
               <a href="javascript:void(0);">
@@ -67,9 +78,11 @@ const Toppost = () => {
               </a>
              </li>
           </ul>
-        </div>
-        {data && data.posts && data.posts.edges.map(({ node }) => 
-         <div>
+        </div>  
+            <HelmetMetaData title={node.title}
+                 image={node.featuredImage.node.sourceUrl}
+                 url={`${wpurl}?post=${node.slug}`}
+              ></HelmetMetaData>
          <div className="news-img">
            <img
              src={node.featuredImage.node.sourceUrl}

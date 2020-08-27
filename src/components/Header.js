@@ -13,7 +13,7 @@ const Header = createReactClass({
   
         <title>Dubai BizBuzz</title>
         <link rel="stylesheet" href="css/font-awesome.min.css" />
-      
+       
       </div>
     );
   }
