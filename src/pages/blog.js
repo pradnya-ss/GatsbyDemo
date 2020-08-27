@@ -3,14 +3,8 @@ import { withPrefix } from 'gatsby';
 import { useQuery } from '@apollo/client';
 import gql from 'graphql-tag';
 import Layout from "../components/layout";
-import Upperbanner from "../components/Upperbanner";
-import BottomBanner from "../components/BottomBanner";
-import Toppost from "../components/Toppost";
-import Doingbusiness from "../components/Doingbusineessection";
-import Destinationdubai from "../components/Destinationdubai";
-import Wordcloud from "../components/Wordcloud";
-import Categories from "../components/Categories";
-import newwatchright from "../../static/news-watch-right-banner.jpg"
+
+import { useQueryParam } from "gatsby-query-params";
 
 
 // import { Link } from "gatsby"
@@ -80,11 +74,9 @@ query posts ($name :String!) {
 // export default Blog;
 const Blog = () => {
    
-    const queryString = window.location.search;
-    console.log(queryString);
-    const urlParams = new URLSearchParams(queryString);
-    const name = urlParams.get('post')
-    // console.log(location.state.slug);
+ 
+    const name = useQueryParam("post", "");
+     console.log(name);
     // var name=JSON.stringify(location.state.slug);
     const { data } = useQuery(BlOG_QUERY,{
         variables:{
