@@ -15,6 +15,7 @@ query posts($categoryid:Int!)
             title
             date
             slug
+            postId
             categories {
               edges {
                 node {
@@ -54,6 +55,9 @@ const Categorytemplate = ( categoryid ) => {
    function handleblog(slug){
     navigate(`/blog/?post=${slug}`, {state:{slug}})
    }
+   function handlepanel(id){
+    navigate(`/headline/?panel=${id}`)
+   }
    return ( 
     
    
@@ -64,7 +68,7 @@ const Categorytemplate = ( categoryid ) => {
             
             <li>
             <p classname="date">{node.date}</p>
-            <a href="javascript:void(0);" onClick={() => handleblog(node.slug)}  className="title">
+            <a href="javascript:void(0);"  onClick={() => handlepanel(node.postId)}  className="title">
                           {node.title} 
             </a>
             </li>

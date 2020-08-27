@@ -14,7 +14,7 @@ import Specificcategoryresult from "../components/Specificcategoryresult";
 
 
 
-const Filterresult = ({ categoryid }) => {
+const Filterresult = ({ categoryid, panel }) => {
   
     console.log(categoryid+"dadsasasasasasasasasasasasasasasasa");
         // const { data: posts } = useQuery(APOLLO_QUERY,{
@@ -27,7 +27,7 @@ const Filterresult = ({ categoryid }) => {
    //return (<h1>Shreyas</h1>);
    return ( 
        
-      categoryid=='0'?<Allfilterresult/>:<Specificcategoryresult searchcatid={categoryid}/>
+      categoryid=='0'?<Allfilterresult panel={panel}/>:<Specificcategoryresult searchcatid={categoryid}/>
         
     );
 };

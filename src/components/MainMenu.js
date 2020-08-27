@@ -1,8 +1,9 @@
-import React, { Component } from "react"
+import React, { Component ,useEffect} from "react"
 import logo from "../../static/dubai-bizbuzz-logo.png"
 import { Link } from 'gatsby';
 import { useQuery } from '@apollo/client';
 import gql from 'graphql-tag';
+import $ from 'jquery'; 
 
 const APOLLO_QUERY = gql`
 {
@@ -19,6 +20,16 @@ const APOLLO_QUERY = gql`
 }
 `;
 const MainMenu = () => {
+
+  useEffect(() => {
+    $(document).ready(function(){
+      $('.mobile-menu-icon').on("click", function(){
+        $(this).toggleClass('open');
+        $('.nav').toggleClass('open');
+      });
+
+    });
+   })
   const { loading, error, data } = useQuery(APOLLO_QUERY);
   const menus = data && data.menuItems && data.menuItems.edges;
   

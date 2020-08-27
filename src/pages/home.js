@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useState,useEffect} from 'react';
 import { withPrefix } from 'gatsby';
 import { useQuery } from '@apollo/client';
 import gql from 'graphql-tag';
@@ -56,6 +56,7 @@ const APOLLO_QUERY = gql`
           title
           slug
           date
+          postId
         }
       }
     }
@@ -65,6 +66,7 @@ const APOLLO_QUERY = gql`
           title
           slug
           date
+          postId
           content
         }
       }
@@ -75,6 +77,7 @@ const APOLLO_QUERY = gql`
           slug
           title
           date
+          postId
           content
           featuredImage {
             node {
@@ -107,7 +110,10 @@ const Posts = () => {
   function handleblog(slug){
        navigate(`/blog/?post=${slug}`, {state:{slug}})
    }
-
+   function handlepanel(id){
+    navigate(`/headline/?panel=${id}`)
+   } 
+  
   if (loading) return <p>Loading Posts...</p>;
   if (error) return <p>{error}</p>;
 
@@ -175,7 +181,7 @@ return(
               {currentevents.map(({ node }) => 
                 <li>
                   <p className="date">{node.date}</p>
-                  <a  onClick={() => handleblog(node.slug)} className="title">
+                  <a  onClick={() => handlepanel(node.postId)} className="title">
                        {node.title}
                   </a>
               </li>
@@ -193,7 +199,8 @@ return(
                   <div className="left">
                     { <img src={node.featuredImage.node.sourceUrl} alt={node.title} /> }
                     <p className="title">
-                       {node.title}
+                    <a onClick={() => handlepanel(node.postId)} >{node.title}</a> 
+                       
                     </p>
                     <p>
                     <div dangerouslySetInnerHTML={{ __html: `${node.content} `}}></div>

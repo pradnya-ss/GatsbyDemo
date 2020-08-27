@@ -1,10 +1,12 @@
-import React, {useState} from "react"
+import React, {useState,useEffect} from "react"
 import logo from "../../static/dubai-bizbuzz-logo.png"
 
 import { useQuery } from '@apollo/client';
 import gql from 'graphql-tag';
 import Layout from "../components/layout";
 import Filterresult from "../components/Filterresult";
+import { useQueryParam } from "gatsby-query-params";
+import $ from "jquery";
 import {
   Accordion,
   AccordionItem,
@@ -50,6 +52,12 @@ const POST_FILTER = gql`
     }
 `;
 const Headline = (filtervalue) => {
+
+    var panel = useQueryParam("panel", "");
+    console.log('**********************************************');
+    console.log(panel);
+    console.log('**********************************************');
+    
     var [filtervalue, setFilter] = useState('0');
     
     const { data: search } = useQuery(APOLLO_QUERY);
@@ -60,7 +68,20 @@ const Headline = (filtervalue) => {
        
         setFilter(id);
     }
-    
+
+    useEffect(() => {
+        // for headline page - filter section
+          $('a.filter-tag').click(function(e){
+          // e.preventDefault();
+          $('.filter-li').slideToggle();
+          $('.filter-li').toggleClass('show');
+        });
+        // $('.filter-li li').click(function(e){
+        //   // e.preventDefault();
+        //   $('.filter-li').removeClass('show');
+        //   $('.filter-li').hide('');
+        // });
+     })
   //   function handleClickLodmore(){
   //     lasted=last+2;
   //     setLast(lasted);
@@ -78,7 +99,7 @@ const Headline = (filtervalue) => {
     <div className="container">
       <h2 className="page-title">Headlines</h2>
       <div className="filter-wraper">
-      <ul className="filter-li">
+      <ul>
         <li className="filter-txt">
            <a className="filter-tag"> 
             Filter By:
@@ -109,7 +130,7 @@ const Headline = (filtervalue) => {
     </div>
   </div>
   
-   <Filterresult categoryid={filtervalue} />
+   <Filterresult categoryid={filtervalue}  panel={panel} />
   </Layout>
     );
 };
