@@ -2,9 +2,9 @@ import React from "react";
 import { Helmet } from "react-helmet";
 import { useLocation } from "react-router-dom";
 export default function HelmetMetaData(props) {
-//    let location = useLocation();
-   //let currentUrl = "http://www.camperstribe.com" + location.pathname;
-   let currentUrl = "https://master.dt90fhdc2pb5d.amplifyapp.com";
+     let location = useLocation();
+   let currentUrl = "https://master.dt90fhdc2pb5d.amplifyapp.com" + location.pathname;
+   //let currentUrl = "https://master.dt90fhdc2pb5d.amplifyapp.com";
    let quote = props.quote !== undefined ? props.quote : "";
    let title = props.title !== undefined ? props.title : "CampersTribe - World is yours to explore";
    let image = props.image !== undefined ? props.image : "https://storage.googleapis.com/cmperstribe_storage_usha/Banner/IMG_3640.JPG";
@@ -39,6 +39,7 @@ return (
      <meta content="image/*" property="og:image:type" />
      <meta property="og:url" content={currentUrl} />
      <meta property="og:site_name" content="CampersTribe" />
-     <meta property="og:description" content={description} />    </Helmet>
+     <meta property="og:description" content={description} />    
+     </Helmet>
 );
 }
