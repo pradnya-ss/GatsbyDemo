@@ -25,8 +25,20 @@ const APOLLO_QUERY = gql`
       }
 }
 `;
+// const POST_FILTER = gql`
+//     query posts ($filtervalue :Int!) {
+//         posts(where:{categoryId: $filtervalue}) {
+//           edges {
+//             node {
+//               slug
+//               title
+//             }
+//           }
+//         }
+//     }
+// `;
 const POST_FILTER = gql`
-    query posts ($filtervalue :Int!) {
+    query posts ($filtervalue :Int!,$last:Int!) {
         posts(where:{categoryId: $filtervalue}) {
           edges {
             node {
@@ -39,6 +51,7 @@ const POST_FILTER = gql`
 `;
 const Headline = (filtervalue) => {
     var [filtervalue, setFilter] = useState('0');
+    
     const { data: search } = useQuery(APOLLO_QUERY);
    // if(filtervalue!=''){
        
@@ -47,7 +60,11 @@ const Headline = (filtervalue) => {
        
         setFilter(id);
     }
-   
+    
+  //   function handleClickLodmore(){
+  //     lasted=last+2;
+  //     setLast(lasted);
+  // }
     // console.log("---------------------filter value");
     // console.log(filtervalue);
     // console.log("++++++++++++++++++++++");

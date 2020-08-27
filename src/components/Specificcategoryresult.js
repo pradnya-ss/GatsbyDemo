@@ -1,4 +1,4 @@
-import React, { Component } from "react"
+import React, { Component,useState} from "react"
 
 import { useQuery } from '@apollo/client';
 import gql from 'graphql-tag';
@@ -11,11 +11,11 @@ import {
   } from 'react-accessible-accordion';
 
 
-  const APOLLO_QUERY = gql`
+const APOLLO_QUERY = gql`
 
-  query posts($searchcatid:Int!)
+  query posts($searchcatid:Int!,$last:Int!)
   {
-      posts(where: {categoryId: $searchcatid}) {
+      posts(where: {categoryId: $searchcatid},last: $last) {
           edges {
             node {
               id
@@ -40,13 +40,22 @@ import {
         }
   }
   `;
-const Specificcategoryresult = (searchcatid) => {
+const Specificcategoryresult = ({searchcatid,last}) => {
   
-  
+    var [last, setLast] = useState(1);
     const { loading, data: specificposts } = useQuery(APOLLO_QUERY,{
-        variables:searchcatid
+        variables:{
+           searchcatid:searchcatid,  
+           last:last
+          }
     });
-  
+
+
+    function handleClickLodmore(){
+      var lasted=parseInt(last)+parseInt(2);
+      setLast(lasted);
+    }
+    
     if (loading) return <p>Loading Posts...</p>;
    return ( 
 
@@ -101,7 +110,7 @@ const Specificcategoryresult = (searchcatid) => {
 
             {/* news accordion ends */}
             <div className="btm-btn">
-            <a href="javascript:void(0);" className="load-more">
+            <a href="javascript:void(0);" className="load-more" onClick={() => handleClickLodmore()} >
                 Load More Headlines
             </a>
             <a href="javascript:void(0);" className="top-btn">
