@@ -78,7 +78,12 @@ const Headline = (filtervalue) => {
     <div className="container">
       <h2 className="page-title">Headlines</h2>
       <div className="filter-wraper">
-        <ul>
+      <ul className="filter-li">
+        <li className="filter-txt">
+           <a className="filter-tag"> 
+            Filter By:
+            </a>
+        <ul className="filter-li">
         <li className={filtervalue=='0'?"active":'' 
           } >
             <a href="javascript:void((0);" onClick={() => handleClick('0')}>ALL</a>
@@ -89,6 +94,8 @@ const Headline = (filtervalue) => {
             <a href="javascript:void((0);" data-key={node.categoryId} onClick={() => handleClick(node.categoryId)}>{node.name}</a>
           </li>
         )}
+        </ul>
+        </li>
         </ul>
         <div className="month-filter">
           <select name="month" id="month">

@@ -29,10 +29,12 @@ const Upperbanner = () => {
    return ( 
     <section class="top-banner-wrapper">
       {topbanners && topbanners.bannerimages && topbanners.bannerimages.edges.map(({node}) =>
-         <img src={node.banners.desktop.sourceUrl} alt={node.title} classname="desktop"></img> 
+         <img src={node.banners.desktop.sourceUrl} alt={node.title} className="desktop"></img> 
       )}
-      
-       {/* <img src={mobile} alt="Expo2020 Dubai UAE Banner" classname="mobile"></img> */}
+       
+       {/* <img src={mobile} alt="Expo2020 Dubai UAE Banner" classname="mobile"></img>  */}
+       {/* <img src="https://wd.emqubeweb.com/pub/media/logo/stores/1/william-doshi-logo.png" alt="Expo2020 Dubai UAE Banner" className="mobile"></img> */}
+       
      </section> 
     );
 };

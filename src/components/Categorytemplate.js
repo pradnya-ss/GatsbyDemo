@@ -64,7 +64,7 @@ const Categorytemplate = ( categoryid ) => {
             
             <li>
             <p classname="date">{node.date}</p>
-            <a href="javascript:void(0);" onClick={() => handleblog(node.slug)}  classname="title">
+            <a href="javascript:void(0);" onClick={() => handleblog(node.slug)}  className="title">
                           {node.title} 
             </a>
             </li>

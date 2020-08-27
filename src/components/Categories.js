@@ -63,7 +63,7 @@ const Categories = () => {
     
    return ( 
     
-    <div classname="economy-wrap">
+    <div className="economy-wrap">
      {/* <Categorytemplate name="219"/>    */}
   
         {unwwantedid.map(item  => {
