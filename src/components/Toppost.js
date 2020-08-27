@@ -27,7 +27,7 @@ const Toppost = () => {
   //var [postvalue, setPostValue] = useState('');
 
    function handleblog(slug){
-       navigate(`/blog/?${slug}`, {state:{slug}})
+       navigate(`/blog/?post=${slug}`, {state:{slug}})
    }
 
   const { loading, error, data } = useQuery(APOLLO_QUERY);
@@ -84,11 +84,10 @@ const Toppost = () => {
          <div dangerouslySetInnerHTML={{ __html: `<div>${node.content}</div>` }}></div>
            
          </p>
-         {/* <Link
-          to="/blog"
-          title={node.postId}
-          >Read More</Link> */}
-         <a onClick={() => handleblog(node.slug)} >Read More</a>
+         {/* {<Link
+          to={`/blog/?post=${node.slug}`}
+          >Read More</Link> } */}
+           <a onClick={() => handleblog(node.slug)} >Read More</a> 
        </div>
         )}
       </div>

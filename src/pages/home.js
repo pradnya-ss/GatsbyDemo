@@ -11,6 +11,7 @@ import Destinationdubai from "../components/Destinationdubai";
 import Wordcloud from "../components/Wordcloud";
 import Categories from "../components/Categories";
 import newwatchright from "../../static/news-watch-right-banner.jpg"
+import { Link,navigate} from 'gatsby';
 
 
 // import { Link } from "gatsby"
@@ -103,6 +104,10 @@ const Posts = () => {
   const economydepartment = data && data.economydepartment && data.economydepartment.edges;
   const newswatch = data && data.Newswatch && data.Newswatch.edges;
 
+  function handleblog(slug){
+       navigate(`/blog/?post=${slug}`, {state:{slug}})
+   }
+
   if (loading) return <p>Loading Posts...</p>;
   if (error) return <p>{error}</p>;
 
@@ -170,7 +175,7 @@ return(
               {currentevents.map(({ node }) => 
                 <li>
                   <p className="date">{node.date}</p>
-                  <a href="http://localhost:8000/posts/" className="title">
+                  <a  onClick={() => handleblog(node.slug)} className="title">
                        {node.title}
                   </a>
               </li>

@@ -2,6 +2,7 @@ import React, { Component } from "react"
 
 import { useQuery } from '@apollo/client';
 import gql from 'graphql-tag';
+import { Link,navigate} from 'gatsby';
 
 const APOLLO_QUERY = gql`
 
@@ -13,6 +14,7 @@ query posts($categoryid:Int!)
             id
             title
             date
+            slug
             categories {
               edges {
                 node {
@@ -49,6 +51,9 @@ const Categorytemplate = ( categoryid ) => {
 //   const menus = data && data.menuItems && data.menuItems.edges;
   
    //return (<h1>Shreyas</h1>);
+   function handleblog(slug){
+    navigate(`/blog/?post=${slug}`, {state:{slug}})
+   }
    return ( 
     
    
@@ -59,7 +64,7 @@ const Categorytemplate = ( categoryid ) => {
             
             <li>
             <p classname="date">{node.date}</p>
-            <a href="javascript:void(0);" classname="title">
+            <a href="javascript:void(0);" onClick={() => handleblog(node.slug)}  classname="title">
                           {node.title} 
             </a>
             </li>

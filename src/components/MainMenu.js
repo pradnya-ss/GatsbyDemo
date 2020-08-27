@@ -1,6 +1,6 @@
 import React, { Component } from "react"
 import logo from "../../static/dubai-bizbuzz-logo.png"
-
+import { Link } from 'gatsby';
 import { useQuery } from '@apollo/client';
 import gql from 'graphql-tag';
 
@@ -43,9 +43,13 @@ const MainMenu = () => {
         </a>
       </div>
       <ul className="nav">
-      
+       {/* <Link
+          to="/blog"
+          title={node.postId}
+          >Read More</Link> */}
       {data && data.menuItems && data.menuItems.edges.map(({node}) =>
-          <li><a href="/headline">{node.label}</a></li>
+         <li><Link to="/headline" title={node.postId}>{node.label}</Link></li>
+          // <li><a href="/headline">{node.label}</a></li>
       )}
       
         {/* <li>
