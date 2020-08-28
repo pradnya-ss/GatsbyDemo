@@ -79,10 +79,10 @@ const Toppost = () => {
              </li>
           </ul>
         </div>  
-            <HelmetMetaData title={node.title}
+            {/* <HelmetMetaData title={node.title}
                  image={node.featuredImage.node.sourceUrl}
                  url={`${wpurl}?post=${node.slug}`}
-              ></HelmetMetaData>
+              ></HelmetMetaData> */}
          <div className="news-img">
            <img
              src={node.featuredImage.node.sourceUrl}

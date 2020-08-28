@@ -13,14 +13,11 @@ export default function HelmetMetaData(props) {
 "So, join us on this voyage, and explore the beauty and miracle of being yourself!";
    let hashtag = props.hashtag !== undefined ? props.hashtag : "#camperstribe";
 return (
+
  <Helmet>
-     <title>{title}</title> 
-     <meta charset="utf-8" />
-     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
      <meta name="csrf_token" content="" />
      <meta property="type" content="website" />
      <meta property="url" content={currentUrl} />
-     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
      <meta name="msapplication-TileColor" content="#ffffff" />
      <meta name="msapplication-TileImage" content="/ms-icon-144x144.png" />
      <meta name="theme-color" content="#ffffff" />
@@ -40,6 +37,6 @@ return (
      <meta property="og:url" content={currentUrl} />
      <meta property="og:site_name" content="CampersTribe" />
      <meta property="og:description" content={description} />    
-     </Helmet>
+   </Helmet>
 );
 }

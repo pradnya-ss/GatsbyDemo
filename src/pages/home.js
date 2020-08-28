@@ -10,6 +10,8 @@ import Doingbusiness from "../components/Doingbusineessection";
 import Destinationdubai from "../components/Destinationdubai";
 import Wordcloud from "../components/Wordcloud";
 import Categories from "../components/Categories";
+import SubscribeForm from "../components/SubscribeForm";
+import HelmetMetaData from "../components/HelmetMetaData";
 import newwatchright from "../../static/news-watch-right-banner.jpg"
 import { Link,navigate} from 'gatsby';
 
@@ -145,30 +147,12 @@ const Posts = () => {
     //console.log(searchresults);
 return(
     <Layout>
+      <HelmetMetaData/>
     <Upperbanner/>
     {/* {img.map(({ node }) => <img src={node.featuredImage.node.sourceUrl} width="100%" height="200"></img> )} */}
       <Toppost/>
-      <section className="subscribe-wrapper">
-        <div className="container">
-          <div className="left">
-            <p>
-              Subscribe to Dubai BizBuzz <span>Weekly News Updates</span>
-            </p>
-          </div>
-          <div className="right">
-            <form action className="subscribe">
-              <input type="text" placeholder="Name" />
-              <input type="email" placeholder="Email" />
-              <select name id="country">
-                <option value="choose your country">Choose your Country</option>
-                <option value="India">India</option>
-                <option value="UAE">UAE</option>
-              </select>
-              <input type="submit" defaultValue="subscribe" className="submit-btn" />
-            </form>
-          </div>
-        </div>
-      </section>
+      <SubscribeForm/>
+     
       <section className="news-watch-wrapper">
         <div className="container">
           <h2 className="section-title">
