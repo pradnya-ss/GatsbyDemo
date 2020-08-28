@@ -259,10 +259,10 @@ a:hover {
   text-decoration: none;
 }
 
-/* headings() {
+headings() {
   text-align: left;
   margin-bottom: 20px;
-} */
+}
 
 h1,
 h2,
@@ -281,6 +281,10 @@ img {
   max-width: 100%;
   height: auto;
   margin: 0 auto;
+}
+
+.ovh {
+  overflow: visible;
 }
 
 p {
@@ -443,6 +447,34 @@ h3 {
   font-size: 20px;
 }
 
+.top-btn {
+  position: absolute;
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+          transform: translateX(-50%);
+  top: -29px;
+  background: #f0efef;
+  padding: 11px 16px;
+  border-radius: 100%;
+  font-size: 13px;
+  text-transform: uppercase;
+  width: 55px;
+  height: 55px;
+  color: #666;
+}
+
+@media (min-width: 992px) {
+  .top-btn:hover {
+    color: #000;
+  }
+}
+
+.fixed-top-btn {
+  position: fixed;
+  bottom: -29px;
+  top: auto;
+}
+
 @media (min-width: 1440px) {
   .container {
     max-width: 1326px;
@@ -460,6 +492,12 @@ h3 {
 header {
   padding: 20px 0;
   position: relative;
+}
+
+@media (max-width: 968px) {
+  header {
+    overflow: hidden;
+  }
 }
 
 header .container {
@@ -629,6 +667,7 @@ header .container .right-nav .nav {
             flex-direction: column;
     background: #ccc;
     position: absolute;
+    position: fixed;
     width: 65%;
     right: -100%;
     -webkit-box-pack: right;
@@ -659,6 +698,14 @@ header .container .right-nav .nav li {
 @media (max-width: 1110px) {
   header .container .right-nav .nav li {
     padding: 0 10px;
+  }
+}
+
+@media (max-width: 968px) {
+  header .container .right-nav .nav li {
+    padding: 0;
+    width: 100%;
+    text-align: right;
   }
 }
 
@@ -701,6 +748,7 @@ header .container .right-nav .nav li a {
 @media (max-width: 968px) {
   header .container .right-nav .nav li a {
     font-size: 22px;
+    display: block;
   }
 }
 
@@ -1184,12 +1232,15 @@ header .container .right-nav .nav.open {
     width: 100%;
     margin-right: 0;
     margin-bottom: 20px;
+    height: auto;
   }
 }
-
 .news-watch-wrapper .container .news-watch .curr-event ul {
   background: #f1eff0;
   padding: 15px;
+  background-image: url(../../static/curr-events-bg-img.png);
+  background-repeat: no-repeat;
+  background-position: top right;
 }
 
 .news-watch-wrapper .container .news-watch .latest-news {
@@ -1238,6 +1289,12 @@ header .container .right-nav .nav.open {
   margin-right: 0;
 }
 
+@media (max-width: 755px) {
+  .news-watch-wrapper .container .news-watch .latest-news ul li:last-child {
+    margin-bottom: 0;
+  }
+}
+
 .news-watch-wrapper .container .news-watch .latest-news ul li .details img {
   float: right;
   margin-left: 9px;
@@ -1249,9 +1306,16 @@ header .container .right-nav .nav.open {
   }
 }
 
-.news-watch-wrapper .container .news-watch .latest-news ul li .details .title {
+.news-watch-wrapper .container .news-watch .latest-news ul li .details .title a {
   color: #000;
   font-family: 'noto_sansbold';
+  font-size: 13px;
+}
+
+@media (min-width: 992px) {
+  .news-watch-wrapper .container .news-watch .latest-news ul li .details .title a:hover {
+    color: #0066ff;
+  }
 }
 
 .news-watch-wrapper .container .news-watch .latest-news ul li .details p {
@@ -1368,7 +1432,6 @@ header .container .right-nav .nav.open {
     margin-top: 0;
   }
 }
-
 .doing-business-wrapper {
   background-image: url("../../static/bg-img.png");
   background-repeat: no-repeat;
@@ -1570,6 +1633,8 @@ header .container .right-nav .nav.open {
 footer {
   background: #f0efef;
   padding: 40px 20px;
+  position: relative;
+  margin-top: 60px;
 }
 
 @media (max-width: 1100px) {
@@ -1903,6 +1968,23 @@ footer .container .footer-btm .other-links li:last-child a:before {
       align-self: baseline;
 }
 
+@media (max-width: 991px) {
+  .news-filter .container .filter-wraper {
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+  }
+}
+
+@media (max-width: 465px) {
+  .news-filter .container .filter-wraper {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+}
+
 .news-filter .container .filter-wraper ul {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -1916,8 +1998,21 @@ footer .container .footer-btm .other-links li:last-child a:before {
   }
 }
 
+@media (max-width: 465px) {
+  .news-filter .container .filter-wraper ul {
+    width: 100%;
+    margin-bottom: 15px;
+  }
+}
+
 .news-filter .container .filter-wraper ul li {
   padding: 0 6px;
+}
+
+@media (max-width: 991px) {
+  .news-filter .container .filter-wraper ul li {
+    padding: 0;
+  }
 }
 
 .news-filter .container .filter-wraper ul li.active a {
@@ -1967,6 +2062,12 @@ footer .container .footer-btm .other-links li:last-child a:before {
   }
 }
 
+@media (max-width: 465px) {
+  .news-filter .container .filter-wraper ul li.filter-txt a.filter-tag {
+    padding: 10px;
+  }
+}
+
 @media (min-width: 992px) {
   .news-filter .container .filter-wraper ul li.filter-txt a.filter-tag:hover:before {
     display: none;
@@ -2010,6 +2111,13 @@ footer .container .footer-btm .other-links li:last-child a:before {
     -webkit-box-direction: normal;
         -ms-flex-direction: column;
             flex-direction: column;
+    border-top: 1px solid #ccc;
+  }
+}
+
+@media (max-width: 991px) and (max-width: 465px) {
+  .news-filter .container .filter-wraper ul li.filter-txt .filter-li {
+    top: 37px;
   }
 }
 
@@ -2086,9 +2194,21 @@ footer .container .footer-btm .other-links li:last-child a:before {
   width: 170px;
 }
 
+@media (max-width: 465px) {
+  .news-filter .container .filter-wraper .month-filter {
+    width: 100%;
+  }
+}
+
 .news-filter .container .filter-wraper .month-filter select {
   padding: 5px;
   background: #fff;
+}
+
+@media (max-width: 465px) {
+  .news-filter .container .filter-wraper .month-filter select {
+    padding: 10px;
+  }
 }
 
 .news-list-wrapper {
@@ -2291,6 +2411,7 @@ footer .container .footer-btm .other-links li:last-child a:before {
     -webkit-box-ordinal-group: 4;
         -ms-flex-order: 3;
             order: 3;
+    font-size: 22px;
   }
 }
 
@@ -2403,6 +2524,7 @@ footer .container .footer-btm .other-links li:last-child a:before {
   .news-list-wrapper .container .left .accordion .col-md-8 .accordion__panel .exter-link p.right {
     text-align: left;
     margin-top: 15px;
+    width: 100%;
   }
 }
 
